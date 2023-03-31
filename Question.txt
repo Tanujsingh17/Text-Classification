@@ -1,0 +1,13 @@
+Building a text classification model in python (well-commented and easy to understand) using the Hugging Face library to classify a dataset of text into one of multiple categories.
+I will be using a pre-trained model called 'BERT' as a starting point and fine-tune it on the classification task.
+My dataset of text has multiple categories (e.g. news articles labeled as sports, politics, entertainment, etc.).
+Then, I wil preprocess the text data by cleaning it, removing stopwords, punctuations and other irrelevant characters.
+Later, I will train the model on the dataset and evaluate the performance using metrics such as accuracy, precision, recall and F1-score.
+Finally, I will be using the trained model to predict the categories of a few samples from the test set.
+At last, I will write a report (clear, concise and well-structured) that includes the following:
+1. A brief introduction to the task and the dataset used
+2. The preprocessing steps taken
+3. The architecture of the model used, and how it was fine-tuned
+4. The evaluation metrics and the results obtained
+5. A discussion of the performance of the model and possible ways to improve it.
+6. Sample predictions and their explanations

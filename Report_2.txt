@@ -1,0 +1,32 @@
+Here is the breakdown of each section of my code:
+
+Importing Libraries
+The first section of the code imports necessary libraries such as pandas, numpy, torch, re, and transformers. Pandas and numpy are used for data manipulation and analysis, while torch is a deep learning framework. The re module is used for regular expressions, and transformers is a library for working with pre-trained language models.
+
+Loading Data
+The next section loads the dataset using pandas, where it reads a CSV file and stores it in a DataFrame object. The unique categories from the "category" column are stored in a separate variable.
+
+Preprocessing text
+The text data is preprocessed in the next section using a function called "preprocess_text". This function converts the text to lowercase, removes numbers, removes punctuation, and strips leading/trailing white space. Finally, the "text" column of the DataFrame is transformed using this function.
+
+Splitting Data
+After preprocessing, the data is split into training and validation sets using a specified train size and a random seed. The training and validation datasets are created by randomly selecting rows from the original DataFrame using pandas' "sample" method.
+
+Encoding Data
+Next, the text data is encoded into input features using the BERT tokenizer. The "tokenizer" variable is created using the "BertTokenizer" class from the transformers library. The tokenizer is applied to the text data using the "tokenizer" method and the resulting encodings are stored in separate variables for the training and validation datasets.
+
+Defining Model Architecture
+The model architecture is defined using the "BertForSequenceClassification" class from the transformers library. This class creates a BERT model with a classification head on top. The number of labels is set to the number of unique categories in the dataset.
+
+Setting up Optimizer and Scheduler
+The optimizer and learning rate scheduler are set up using the "AdamW" optimizer and the "get_linear_schedule_with_warmup" scheduler from the transformers library. The optimizer is initialized with the model parameters and a learning rate. The total number of steps for the scheduler is calculated based on the length of the training dataset and the number of epochs.
+
+Setting up Data Loaders
+Data loaders are created using the "DataLoader" class from the torch.utils.data module. The training and validation datasets are passed into separate data loaders along with a batch size. The data is sampled randomly for the training data loader and sequentially for the validation data loader.
+
+Training the Model
+The final section trains and evaluates the model. The device is first set to CUDA if available, otherwise to CPU. The model is then moved to the selected device. The model is trained for a specified number of epochs, where for each epoch, the training data is looped through in batches, the model parameters are optimized, and the loss is calculated. The average training loss is printed at the end of each epoch.
+After each epoch, the model is evaluated on the validation set by looping through the validation data in batches, making predictions using the model, and calculating the validation loss and accuracy. The average validation loss and accuracy are printed at the end of each epoch as well.
+
+Conclusion
+Overall, my code implements a BERT-based text classification model using the transformers library in PyTorch. It preprocesses and encodes the text data, defines the model architecture, sets up the optimizer and scheduler, creates data loaders, trains and finally evaluates the model.
